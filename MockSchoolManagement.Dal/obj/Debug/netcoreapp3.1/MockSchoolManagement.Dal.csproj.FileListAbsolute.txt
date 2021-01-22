@@ -1,0 +1,9 @@
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\bin\Debug\netcoreapp3.1\MockSchoolManagement.Dal.deps.json
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\bin\Debug\netcoreapp3.1\MockSchoolManagement.Dal.dll
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\bin\Debug\netcoreapp3.1\MockSchoolManagement.Dal.pdb
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\obj\Debug\netcoreapp3.1\MockSchoolManagement.Dal.csprojAssemblyReference.cache
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\obj\Debug\netcoreapp3.1\MockSchoolManagement.Dal.AssemblyInfoInputs.cache
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\obj\Debug\netcoreapp3.1\MockSchoolManagement.Dal.AssemblyInfo.cs
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\obj\Debug\netcoreapp3.1\MockSchoolManagement.Dal.csproj.CoreCompileInputs.cache
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\obj\Debug\netcoreapp3.1\MockSchoolManagement.Dal.dll
+D:\DotNetProject\MockSchoolManagement\MockSchoolManagement.Dal\obj\Debug\netcoreapp3.1\MockSchoolManagement.Dal.pdb

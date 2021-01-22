@@ -1,0 +1,34 @@
+﻿@model MockSchoolManagement.ViewModels.HomeDetailsViewModel
+@*MockSchoolManagement.Model.Student*@
+@{
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Student Details";
+    var photoPath = "~/images/avatars/" + (Model.Student.PhotoPath ?? "noimage.png");
+}
+
+<h4>@Model.PageTitle</h4>
+<div class="row justify-content-center m-3">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                <h2>@Model.PageTitle</h2>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top imageThumbnail" src="@photoPath"  asp-append-version="true"/>
+                <h5>学生ID：@Model.Student.Id</h5>
+                <h5>姓名：@Model.Student.Name</h5>
+                <h5>邮箱：@Model.Student.Email</h5>
+                <h5>主修科目：@Model.Student.Major</h5>
+            </div>
+            <div class="card-footer text-center">
+                <a href="#" class="btn btn-primary">返回</a>
+                <a href="#" class="btn btn-primary">编辑</a>
+                <a href="#" class="btn btn-primary">删除</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/CustomScript.js"></script>
+}
