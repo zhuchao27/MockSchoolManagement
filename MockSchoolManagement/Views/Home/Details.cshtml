@@ -18,7 +18,7 @@
                 <h5>学生ID：@Model.Student.Id</h5>
                 <h5>姓名：@Model.Student.Name</h5>
                 <h5>邮箱：@Model.Student.Email</h5>
-                <h5>主修科目：@Model.Student.Major</h5>
+                <h5>主修科目：@Model.Student.Major.GetDisplayName()</h5>
             </div>
             <div class="card-footer text-center">
                 <a href="#" class="btn btn-primary">返回</a>

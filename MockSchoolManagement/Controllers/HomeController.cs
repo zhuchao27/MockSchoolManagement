@@ -27,6 +27,7 @@ namespace MockSchoolManagement.Controllers
 
         public ViewResult Index()
         {
+            throw new Exception("测试异常");
             var model = studentRepository.GetAllStudents();
             return View(model);
         }
@@ -71,12 +72,33 @@ namespace MockSchoolManagement.Controllers
         }
 
         [HttpGet]
+        public ViewResult Edit(int id)
+        {
+            Student student = studentRepository.GetStudentById(id);
+            if (student == null)
+            {
+                ViewBag.ErrorMessage = $"学生Id={id}的信息不存在，请重试。";
+                return View("NotFound");
+            }
+            StudentEditViewModel studentEditViewModel = new StudentEditViewModel
+            {
+                Id = id,
+                Name = student.Name,
+                Email = student.Email,
+                Major = student.Major,
+                ExistingPhotoPath = student.PhotoPath
+            };
+            return View(studentEditViewModel);
+        }
+
+        [HttpPost]
         public IActionResult Edit(StudentEditViewModel model)
         {
 
             if (ModelState.IsValid)
             {
                 Student student = studentRepository.GetStudentById(model.Id);
+
                 student.Name = model.Name;
                 student.Email = model.Email;
                 student.Major = model.Major;
@@ -112,11 +134,17 @@ namespace MockSchoolManagement.Controllers
         public ViewResult Details(int id)
         {
             Student model = studentRepository.GetStudentById(id);
-            ViewData["PageTitle"] = "Student Details";
-            ViewData["Student"] = model;
 
-            ViewBag.PageTitle = "学生详情";
-            ViewBag.Student = model;
+            if (model == null)
+            {
+                Response.StatusCode = 404;
+                return View("StudentNotFound", id);
+            }
+            //ViewData["PageTitle"] = "Student Details";
+            //ViewData["Student"] = model;
+
+            //ViewBag.PageTitle = "学生详情";
+            //ViewBag.Student = model;
 
             HomeDetailsViewModel vm = new HomeDetailsViewModel() { Student=model,PageTitle= "学生详情" };
 

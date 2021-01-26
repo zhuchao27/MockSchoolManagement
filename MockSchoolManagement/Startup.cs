@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +36,7 @@ namespace MockSchoolManagement
             services.AddControllersWithViews().AddXmlSerializerFormatters();
             //services.AddSingleton<IStudentRepository, MockStudentRepository>();
             services.AddScoped<IStudentRepository, SQLStudentRepository>();
-
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,12 +46,24 @@ namespace MockSchoolManagement
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                //app.UseStatusCodePagesWithReExecute("/Error/{0}");//.UseStatusCodePagesWithRedirects("/Error/{0}");
+            }
+            //else if (env.IsStaging() || env.IsProduction() || env.IsEnvironment("UAT"))
+            //{
+            //    app.UseExceptionHandler("/Error");
+            //}
 
             //DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
             //defaultFilesOptions.DefaultFileNames.Clear();
             //defaultFilesOptions.DefaultFileNames.Add("default.html");
             //app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
+
             app.UseRouting();
             app.UseEndpoints(Endpoint =>
             {
