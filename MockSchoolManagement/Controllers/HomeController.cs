@@ -27,7 +27,6 @@ namespace MockSchoolManagement.Controllers
 
         public ViewResult Index()
         {
-            throw new Exception("测试异常");
             var model = studentRepository.GetAllStudents();
             return View(model);
         }
